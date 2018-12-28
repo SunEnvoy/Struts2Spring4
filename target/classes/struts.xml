@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+ 
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+	"http://struts.apache.org/dtds/struts-2.5.dtd">
+ 
+<struts>
+	<constant name="struts.enable.SlashesInActionNames" value="true" />
+    <constant name="struts.enable.DynamicMethodInvocation" value="true" />
+    <constant name="struts.custom.i18n.resources" value="global" />
+	<constant name="struts.devMode" value="true"></constant>
+	<package name="demo" namespace="/" extends="struts-default">
+		<global-allowed-methods>regex:.*</global-allowed-methods>
+		<action name="first" class="editEmployeeAction">
+		    <result name="success">/view/editEmployeeList.jsp</result>
+			<result name="list">/view/editEmployeeList.jsp</result>
+		</action>
+		
+	</package>
+</struts>
+
+
+<!-- <?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+    <constant name="struts.multipart.maxSize" value="1000000000" />
+    <constant name="struts.enable.DynamicMethodInvocation" value="true" />
+    
+    devMode is helpful when you want some extra logs for debugging
+    <constant name="struts.devMode" value="false" />
+    Global message resource; 
+    	 Otherwise you will have seperate message resource for each Action 
+   
+    <constant name="struts.custom.i18n.resources" value="messages" /> 
+    
+    	This is important if you are planning to have slashes in Action URLs
+    	e.g. In this demo, employee is deleted using URL /delete/10
+    	This this is set to false; then struts will try to find mapping for 
+    	URL "/10" instaed of "/delete/10"
+    
+    <constant name="struts.enable.SlashesInActionNames" value="true"/>
+     
+    Normal Action mappings are defined here
+	<package name="default" namespace="" extends="struts-default">
+	    <global-allowed-methods>regex:.*</global-allowed-methods>	
+	    Two things to Notice: 
+	    	 1) class is set to 'editEmployeeAction' which is bean defined by Spring context
+	    	 2) We have given the method to be called here as well;
+	   	
+	   	<action name="demo" class="editEmployeeAction">
+	   		<result>/view/editEmployeeList.jsp</result>
+	   		<result name="list">/view/editEmployeeList.jsp</result>
+	   	</action>
+	</package>
+	
+</struts> -->
